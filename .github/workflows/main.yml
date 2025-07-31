@@ -66,7 +66,8 @@ jobs:
              scan-type: full
              summary: true
              format: json
-            
+             username: ${{ secrets.DOCKERHUB_USERNAME }}    # Change to your new secret name if needed
+             password: ${{ secrets.DOCKERHUB_TOKEN }}
              write-comment: true
 
       - name: Collect images for output
