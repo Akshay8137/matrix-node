@@ -50,7 +50,7 @@ jobs:
           file: Dockerfile
           platforms: linux/${{ matrix.arch }}
           push: false
-          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}-${{ matrix.arch }}
+          tags: ghcr.io/${{ github.repository.toLowerCase() }}:${{ github.sha }}-${{ matrix.arch }}
 
       - name: Scan Docker image using Docker Scout
         uses: docker/scout-action@v1
