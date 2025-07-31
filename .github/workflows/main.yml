@@ -60,13 +60,13 @@ jobs:
 
       - name: Scout Scan
         uses: er/scout-action@v1
-         with:
+        with:
              command: scan                   # <-- Add this line (example)
              image: ghcr.io/***/matrix-node:31cb9145d4ed5620e1179ba612b5549edca4cd69-amd64
              scan-type: full
              summary: true
              format: json
-             github-token: ***
+            
              write-comment: true
 
       - name: Collect images for output
