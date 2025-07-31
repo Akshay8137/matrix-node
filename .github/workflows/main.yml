@@ -55,13 +55,13 @@ jobs:
       - name: Scan Docker image using Docker Scout
         uses: docker/scout-action@v1
         with:
-          image: ghcr.io/${{ github.repository }}:${{ github.sha }}-${{ matrix.arch }}
+          image: ghcr.io/${{ github.repository.toLowerCase() }}:${{ github.sha }}-${{ matrix.arch }}
           scan-type: full
 
       - name: Collect images for output
         id: set_output
         run: |
-          echo "images=ghcr.io/${{ github.repository }}:${{ github.sha }}-amd64,ghcr.io/${{ github.repository }}:${{ github.sha }}-arm64" >> $GITHUB_OUTPUT
+          echo "images=ghcr.io/${{ github.repository.toLowerCase() }}:${{ github.sha }}-amd64,ghcr.io/${{ github.repository.toLowerCase() }}:${{ github.sha }}-arm64" >> $GITHUB_OUTPUT
 
   push-image:
     needs: build-scan
@@ -104,5 +104,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:${{ github.sha }}
+            ghcr.io/${{ github.repository.toLowerCase() }}:latest
+            ghcr.io/${{ github.repository.toLowerCase() }}:${{ github.sha }}
