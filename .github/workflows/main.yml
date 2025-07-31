@@ -85,9 +85,10 @@ jobs:
           CMD ["node", "index.js"]
           EOF
 
-      - name: Log in to GHCR
-        uses: docker/login-action@v3
+      - name: Scan Docker image using Docker Scout
+        uses: docker/scout-action@v1
         with:
+          command: 'cves'
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
