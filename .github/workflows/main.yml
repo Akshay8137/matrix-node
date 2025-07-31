@@ -56,6 +56,8 @@ jobs:
         uses: docker/scout-action@v1
         with:
           image: ghcr.io/${{ github.repository }}:${{ github.sha }}-${{ matrix.arch }}
+          dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
           scan-type: full
 
       - name: Collect images for output
