@@ -87,8 +87,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ github.USERNAME }}
+          password: ${{ secrets.TOKEN }}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
