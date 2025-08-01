@@ -48,6 +48,10 @@ jobs:
         with:
           command: 'cves'
           image: matrix-node:${{ github.sha }}-${{ matrix.arch }}
+          registry-password: ${{ secrets.GHCR_PAT }}
+          dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub-password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
   push-image:
     needs: build-scan
