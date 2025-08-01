@@ -41,6 +41,7 @@ jobs:
           file: Dockerfile
           platforms: linux/${{ matrix.arch }}
           push: false
+          load: true 
           tags: local/akshay-demo:${{ matrix.arch }}
 
       - name: Log in to DockerHub
@@ -53,8 +54,8 @@ jobs:
       - name: Scan Docker image using Docker Scout
         uses: docker/scout-action@v1
         with:
-          command: cves
-          image: local/akshay-demo:${{ matrix.arch }}
+         command: cves
+         image: akshay-demo:${{ matrix.arch }}
 
   push-image:
     needs: build-scan
