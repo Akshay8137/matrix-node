@@ -55,8 +55,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
          command: cves
-         image: akshay-demo:${{ matrix.arch }}
-
+         image: local/akshay-demo:${{ matrix.arch }}
   push-image:
     needs: build-scan
     runs-on: ubuntu-latest
