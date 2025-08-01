@@ -50,7 +50,7 @@ jobs:
           image: matrix-node:${{ github.sha }}-${{ matrix.arch }}
           registry-password: ${{ secrets.USERNAME }}
           dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
-          dockerhub-password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
           github-token: ${{ secrets.TOKEN }}
 
   push-image:
