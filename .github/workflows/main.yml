@@ -60,7 +60,7 @@ jobs:
           registry: ghcr.io
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
-          dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
           scan-type: full
 
@@ -97,7 +97,7 @@ jobs:
           registry: ghcr.io
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
-          dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
+          dockerhub-user: ${{ secrets.DOCKERHUB_USERNAME }}
           dockerhub-password: ${{ secrets.DOCKERHUB_PASSWORD }}
           scan-type: full
 
