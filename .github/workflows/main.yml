@@ -55,7 +55,11 @@ jobs:
       - name: Scan Docker image using Docker Scout
         uses: docker/scout-action@v1
         with:
+          command: cves
           image: ghcr.io/${{ github.repository }}:${{ github.sha }}-${{ matrix.arch }}
+          registry: ghcr.io
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.TOKEN }}
           dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub-password: ${{ secrets.DOCKERHUB_TOKEN }}
           scan-type: full
@@ -89,11 +93,13 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
+          image: ghcr.io/${{ github.repository }}:${{ github.sha }}-${{ matrix.arch }}
           registry: ghcr.io
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.TOKEN }}
           dockerhub-user: ${{ secrets.DOCKERHUB_USER }}
           dockerhub-password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          scan-type: full
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
