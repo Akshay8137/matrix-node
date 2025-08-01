@@ -96,5 +96,5 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/Akshay8137/matrix-node:latest
-            ghcr.io/Akshay8137/matrix-node:${{ github.sha }}
+            ghcr.io/akshay8137/matrix-node:latest
+            ghcr.io/akshay8137/matrix-node:${{ github.sha }}
