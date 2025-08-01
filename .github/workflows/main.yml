@@ -55,7 +55,7 @@ jobs:
       - name: Scan Docker image using Docker Scout
         uses: docker/scout-action@v1
         with:
-          command: cves
+          command: 'cves'
           image: ghcr.io/${{ github.repository }}:${{ github.sha }}-${{ matrix.arch }}
           registry: ghcr.io
           username: ${{ secrets.USERNAME }}
@@ -92,7 +92,7 @@ jobs:
       - name: Scan Docker image using Docker Scout
         uses: docker/scout-action@v1
         with:
-          command: cves
+          command: 'cves'
           image: ghcr.io/${{ github.repository }}:${{ github.sha }}-${{ matrix.arch }}
           registry: ghcr.io
           username: ${{ secrets.USERNAME }}
